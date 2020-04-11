@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Coronavirus Active Tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+</head>
+<body>
+	<h1>Coronavirus Tracker Application</h1>
+	
+	<div class="jumbotron">
+  <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+  <p class="lead">Total Cases as of Today</p>
+</div>
+	
+	 <table id="example" class="table table-striped table-bordered" style="width:100%">
+	 <thead>
+      <tr>
+        <th>Country</th>
+        <th>State</th>
+        <th>Total Count</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="prod : ${covidStats}">
+        <td th:text="${prod.country}"></td>
+        <td th:text="${prod.state}"></td>
+        <td th:text="${prod.latestCount}"></td>
+      </tr>
+      </tbody>
+    </table>
+</body>
+
+</html>
