@@ -21,6 +21,8 @@ public class CovidController {
 	public String getDetails(Model model) {
 		model.addAttribute("covidStats", covidService.getLocationList());
 		model.addAttribute("totalReportedCases", covidService.getLocationList().stream().mapToInt(count -> count.getLatestCount()).sum());
+		model.addAttribute("difference", (covidService.getLocationList().stream().mapToInt(count -> count.getLatestCount()).sum() - 
+				covidService.getLocationList().stream().mapToInt(count -> count.getYesterdayCount()).sum()));
 		return "home";
 	}
 }

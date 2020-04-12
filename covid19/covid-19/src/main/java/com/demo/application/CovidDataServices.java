@@ -55,6 +55,7 @@ public class CovidDataServices {
 				ld.setState(record.get("Province/State"));
 			    ld.setCountry(record.get("Country/Region"));
 			    ld.setLatestCount(Integer.parseInt(record.get(record.size() - 1)));
+			    ld.setYesterdayCount(Integer.parseInt(record.get(record.size() - 2)));
 			    newStats.add(ld);
 			}
 			this.locationList = newStats; 

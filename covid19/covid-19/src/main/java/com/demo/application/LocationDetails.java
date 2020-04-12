@@ -12,6 +12,9 @@ public class LocationDetails {
 	private String state;
 	private String country;
 	private int latestCount;
+	private int yesterdayCount;
+	private int difference;
+	
 	/**
 	 * @return the state
 	 */
@@ -49,10 +52,38 @@ public class LocationDetails {
 		this.latestCount = latestCount;
 	}
 	
+	/**
+	 * @return the yesterdayCount
+	 */
+	public int getYesterdayCount() {
+		return yesterdayCount;
+	}
+	/**
+	 * @param yesterdayCount the yesterdayCount to set
+	 */
+	public void setYesterdayCount(int yesterdayCount) {
+		this.yesterdayCount = yesterdayCount;
+	}
+	
+	
+	
+	/**
+	 * @return the difference
+	 */
+	public int getDifference() {
+		return difference;
+	}
+	/**
+	 * @param difference the difference to set
+	 */
+	public void setDifference(int difference) {
+		this.difference = difference;
+	}
 	
 	@Override
 	public String toString() {
-		return "LocationDetails [state=" + state + ", country=" + country + ", latestCount=" + latestCount + "]";
+		return "LocationDetails [state=" + state + ", country=" + country + ", latestCount=" + latestCount
+				+ ", yesterdayCount=" + yesterdayCount + ", difference=" + difference + "]";
 	}
 
 }
