@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 </head>
 <body>
-	<h1>COVID-19 Tracker Application</h1>
+	<h1 align="center">COVID-19 Tracker Application</h1>
 
 	<div class="jumbotron">
 		<p class="lead">Total Cases as of Today</p>
@@ -34,6 +34,9 @@ $(document).ready(function() {
 
 		<p class="lead">New cases reporter since yesterday</p>
 		<h3 class="display-3" th:text="${difference}" style="color: red;"></h3>
+		
+		<p class="lead">New cases reporter in USA since yesterday</p>
+		<h2 class="display-3" th:text="${usNewCases}" style="color: blue;"></h2>
 	</div>
 	<div class="container">
 		<table id="example" class="table table-striped table-bordered"

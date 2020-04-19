@@ -14,6 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>covid-19</name>
 	<description>COVID 19 Tracker Project</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>12</java.version>

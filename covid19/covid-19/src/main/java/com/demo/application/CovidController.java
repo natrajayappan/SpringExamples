@@ -17,12 +17,22 @@ public class CovidController {
 	@Autowired
 	CovidDataServices covidService;
 	
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String getDetails(Model model) {
 		model.addAttribute("covidStats", covidService.getLocationList());
 		model.addAttribute("totalReportedCases", covidService.getLocationList().stream().mapToInt(count -> count.getLatestCount()).sum());
 		model.addAttribute("difference", (covidService.getLocationList().stream().mapToInt(count -> count.getLatestCount()).sum() - 
 				covidService.getLocationList().stream().mapToInt(count -> count.getYesterdayCount()).sum()));
+		
+		//Iterating only USA cases
+		covidService.getLocationList().forEach(locationDetail -> {
+			if("US".equals(locationDetail.getCountry())) {
+				int usNewCases = locationDetail.getLatestCount() - locationDetail.getYesterdayCount();
+				model.addAttribute("usNewCases", usNewCases);
+			}
+		});
+		
+		
 		return "home";
 	}
 }
