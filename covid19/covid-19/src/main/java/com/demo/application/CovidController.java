@@ -30,6 +30,11 @@ public class CovidController {
 				int usNewCases = locationDetail.getLatestCount() - locationDetail.getYesterdayCount();
 				model.addAttribute("usNewCases", usNewCases);
 			}
+			
+			if("India".equals(locationDetail.getCountry())) {
+				int indNewCases = locationDetail.getLatestCount() - locationDetail.getYesterdayCount();
+				model.addAttribute("indNewCases", indNewCases);
+			}
 		});
 		
 		
